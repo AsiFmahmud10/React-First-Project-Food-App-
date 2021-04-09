@@ -5,14 +5,18 @@ import {ThemeContext} from "./Theme/ThemeContext";
 
 
 const Navbar = () => {
-     const buttonStyle = {position:'absolute', right:'3px'}
+     const buttonStyle = {position:'absolute', right:'3px',padding:'5px'}
      let currentTheme = 0
      const click=()=>{
          currentTheme =changeTheme()
-         console.log(currentTheme,"huuu")
+         console.log(buttonTheme,"huuu")
      }
 
+     
      const {globalTheme, changeTheme } = useContext(ThemeContext)
+
+     let buttonTheme = (globalTheme.id === 1) ? {...buttonStyle,background:'#52578a',color:'white',border:'0px'} :
+                    {...buttonStyle,background:'white',color:'#9999'}
      return ( 
         <>
         <nav className="navbar " style={{borderBottom :`1px solid ${globalTheme.border}`}}>
@@ -23,7 +27,7 @@ const Navbar = () => {
             </div>
             
         </nav>
-        <button style={buttonStyle} onClick = {()=>click()}  >click</button>
+        <button style={buttonTheme}  onClick = {()=>click()}  >Change Theme</button>
         </>
     ); 
 }

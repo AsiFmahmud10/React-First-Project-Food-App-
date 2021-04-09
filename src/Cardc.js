@@ -32,8 +32,8 @@ const Cardc = ({data}) => {
                         <img src={data.image} alt=""/>
                     </div>
                     <div>
-                        <h3>Title :{data.title}</h3>
-                        <h5>asd</h5>
+                        <h3>Title : {data.title}</h3>
+                       
                     </div>
 
                 </div>

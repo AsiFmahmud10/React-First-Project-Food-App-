@@ -31,7 +31,7 @@ const Searchbar = () => {
             }}>
            
   
-           <input type="text" placeholder="Search for a recipe"
+           <input type="text" placeholder="Search a recipe"
            value = {query}
            onChange = {(e)=>{  setQuery(e.target.value)}}
            />          

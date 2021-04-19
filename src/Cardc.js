@@ -36,7 +36,7 @@ const Cardc = ({data}) => {
                     </div>
                     <div>
                         <div style={{display:'flex',paddingLeft:'30px'}}> 
-                               <h3 style={{fontFamily: 'cursive'}}>Title : <h4>{data.title}</h4></h3>
+                               <h3 style={{fontFamily: 'cursive',paddingLeft: "9px"}}>Title : <h4>{data.title}</h4></h3>
                         </div>
                         
                        

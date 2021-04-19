@@ -1,14 +1,17 @@
 import { useContext, useState } from "react"
+import { Link, useHistory } from "react-router-dom"
 import {ThemeContext} from "./Theme/ThemeContext"
 
 const Cardc = ({data}) => {
      
      const [tgl,setTgl] = useState(false)
-       
+       const history = useHistory()
 
      const {globalTheme} = useContext(ThemeContext)
-
+     let _link = `./Recipe`
+     
      const nutition = ()=>{
+        console.log(data,"____")
             let obj =data.nutrition.nutrients[0]
              return ( 
                         <div>{
@@ -28,19 +31,23 @@ const Cardc = ({data}) => {
                 }
                 } 
                onClick={()=>{setTgl(!tgl)}}>
-                    <div className = "card">
+                    <div className = "card" style={{border:`1px solid whitesmoke`}}>
                         <img src={data.image} alt=""/>
                     </div>
                     <div>
-                        <h3>Title : {data.title}</h3>
+                        <div style={{display:'flex',paddingLeft:'30px'}}> 
+                               <h3 style={{fontFamily: 'cursive'}}>Title : <h4>{data.title}</h4></h3>
+                        </div>
+                        
                        
                     </div>
 
                 </div>
                 
                { tgl && (<div className = "enddiv">{nutition()}</div>) }
-               
-
+                
+                <Link to={_link} >Details</Link>
+                <button onClick={()=>{history.push('./Recipe')}}>Details</button>
 
         </div>
      );

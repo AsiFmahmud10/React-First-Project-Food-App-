@@ -19,8 +19,11 @@ function App() {
    
                  <Navbar/>
                   <Switch>
-                    <Route exact path="/">  <Home/>  </Route>
-                    <Route exact path="/Recipe"> <Recipe/> </Route>
+                    <Route exact path="/">
+                          <Home/>
+                      </Route>  
+                    <Route exact path="/Recipe/:id">  <Recipe/> 
+                    </Route>
                   </Switch>   
                 
                </ThemeContextProvider>

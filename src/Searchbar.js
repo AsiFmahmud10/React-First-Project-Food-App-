@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react/cjs/react.development";
 
 import Cardc from "./Cardc"
+import { dataContext } from "./dataContext/DataContext";
 import {Fetch} from './fetchApi'
 
 
 const Searchbar = () => {
     
     const [query,setQuery] = useState(' ')
- 
-    const [ data, setData ] = useState(null)
-    const [ error, setError ] = useState(null)   
-
     
+      const {setData,fetchData,data,setError,error} = useContext(dataContext)    
 
     const search = (food)=>{
       
@@ -25,6 +24,7 @@ const Searchbar = () => {
     return ( 
 
      <div className="bar">
+        
          <form onSubmit={  (e)=>{e.preventDefault()
                 search(query)
                 setQuery('') 
@@ -36,7 +36,7 @@ const Searchbar = () => {
            onChange = {(e)=>{  setQuery(e.target.value)}}
            />          
          </form> 
-         {console.log(data,"asiiii")}
+         
         {
           data ?  data.results.map((data)=>(
             <div className="container" key={data.id}> 
@@ -46,10 +46,13 @@ const Searchbar = () => {
 
         ) : (
             <div style={{color:'orangered'}} >
-                {error}
+                {error} 
             </div>
         )
     }
+
+  <Link to='/Recipe'>asd</Link>
+
         </div>
      );
 }

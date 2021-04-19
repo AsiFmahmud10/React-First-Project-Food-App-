@@ -4,6 +4,8 @@ import Home from './Home'
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import ThemeContextProvider from './Theme/ThemeContext'
 import Recipe from './Recipe'
+import Searchbar from './Searchbar'
+import DataContextProvider from './dataContext/DataContext'
 
 
 function App() {
@@ -16,16 +18,17 @@ function App() {
           <div className="App">
       
             <ThemeContextProvider>
-   
-                 <Navbar/>
-                  <Switch>
-                    <Route exact path="/">
-                          <Home/>
-                      </Route>  
-                    <Route exact path="/Recipe/:id">  <Recipe/> 
-                    </Route>
-                  </Switch>   
-                
+                  <DataContextProvider>
+                                  <Navbar/>
+                                    <Switch>
+                                          <Route exact path="/Recipe/:id">  
+                                              <Recipe/> 
+                                          </Route>
+                                         <Route exact path="/">
+                                             <Searchbar/>
+                                         </Route>  
+                                    </Switch>   
+                          </DataContextProvider>
                </ThemeContextProvider>
         
               </div>

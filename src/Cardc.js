@@ -11,7 +11,7 @@ const Cardc = ({data}) => {
      let _link = `./Recipe`
      
      const nutition = ()=>{
-        console.log(data,"____")
+       
             let obj =data.nutrition.nutrients[0]
              return ( 
                         <div>{
@@ -46,8 +46,8 @@ const Cardc = ({data}) => {
                 
                { tgl && (<div className = "enddiv">{nutition()}</div>) }
                 
-                <Link to={_link} >Details</Link>
-                <button onClick={()=>{history.push('./Recipe')}}>Details</button>
+              { console.log(data,"____")}
+                <button onClick={()=>{history.push(`./Recipe/${data.id}`)}}>Details</button>
 
         </div>
      );

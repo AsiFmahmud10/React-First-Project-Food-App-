@@ -3,9 +3,10 @@ import { useContext, useState } from "react/cjs/react.development";
 import { ThemeContext } from "./Theme/ThemeContext";
 import {Fetch} from './fetchApi'
 import { useParams } from "react-router";
+
 const Recipe = () => {
     let {id:_id} = useParams()
-    const {color,surface,border,background}=useContext(ThemeContext)
+    const {color,background}=useContext(ThemeContext)
     
     let url = `https://api.spoonacular.com/recipes/${_id}/information?apiKey=9d1d7e5acfb344e7b0028ac0144e5c87&includeNutrition=false`
     
@@ -17,7 +18,6 @@ const Recipe = () => {
     useEffect(()=>{
         if(_id != null)
         Fetch(setRecipe,url,setError)
-        
     },[url])
     
     let img ,summary,sourch,dishTypes,ing,item = [],readyInMinutes

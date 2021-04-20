@@ -7,12 +7,14 @@ import { dataContext } from "./dataContext/DataContext";
 import {Fetch} from './fetchApi'
 
 
-const Searchbar = () => {
+const  Searchbar = () => {
     
     const [query,setQuery] = useState(' ')
     
-      const {setData,fetchData,data,setError,error} = useContext(dataContext)    
+      const {setData,data,setError,error} = useContext(dataContext)  
 
+        //console.log(useContext(dataContext),"nani")
+        
     const search = (food)=>{
       
         console.log(query)
@@ -22,39 +24,30 @@ const Searchbar = () => {
     }
    
     return ( 
-
      <div className="bar">
-        
-         <form onSubmit={  (e)=>{e.preventDefault()
-                search(query)
-                setQuery('') 
-            }}>
-           
-  
-           <input type="text" placeholder="Search a recipe"
-           value = {query}
-           onChange = {(e)=>{  setQuery(e.target.value)}}
-           />          
-         </form> 
+            <form onSubmit={  (e)=>{e.preventDefault()
+                            search(query)
+                            setQuery('') 
+                        }}>
+                        <input type="text" placeholder="Search a recipe"
+                        value = {query}
+                        onChange = {(e)=>{  setQuery(e.target.value)}}
+                        />          
+            </form> 
          
-        {
-          data ?  data.results.map((data)=>(
-            <div className="container" key={data.id}> 
-                <Cardc data = {data}/>
-            </div>
-        ) 
+            {
+                data ?  data.results.map((data)=>(
+                        <div className="container" key={data.id}> 
+                            <Cardc data = {data}/>
+                        </div>) 
 
-        ) : (
-            <div style={{color:'orangered'}} >
+              ) : 
+              (<div style={{color:'orangered'}} >
                 {error} 
-            </div>
-        )
+            </div> )
     }
-
-  <Link to='/Recipe'>asd</Link>
-
         </div>
      );
 }
  
-export default Searchbar;
+export default Searchbar

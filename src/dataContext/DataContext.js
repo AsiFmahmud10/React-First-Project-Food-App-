@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react"
 
-const dataContext = createContext() 
+export const dataContext = createContext() 
 
 const  DataContextProveder = (props)=>{
 
@@ -11,14 +11,11 @@ const  DataContextProveder = (props)=>{
                 setData(_data) 
                 console.log("fetch")
         }
-        
-
 
     return (
             <>
                     <dataContext.Provider  value = {{setData,setError,fetchData,data,error}}>
                                 {props.children}
-
                     </dataContext.Provider>
            </>
     )
@@ -26,4 +23,3 @@ const  DataContextProveder = (props)=>{
 
 }
 export default DataContextProveder
-export {dataContext}

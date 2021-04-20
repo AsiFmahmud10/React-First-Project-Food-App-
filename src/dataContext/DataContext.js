@@ -1,22 +1,17 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useState } from "react"
 
-export const dataContext = createContext() 
+export const DataContext = createContext() 
 
 const  DataContextProveder = (props)=>{
 
         const [data, setData] =  useState(null)
         const [error, setError] = useState(null)
         
-        const fetchData=(_data)=>{
-                setData(_data) 
-                console.log("fetch")
-        }
-
     return (
             <>
-                    <dataContext.Provider  value = {{setData,setError,fetchData,data,error}}>
+                    <DataContext.Provider  value = {{setData,setError,data,error}}>
                                 {props.children}
-                    </dataContext.Provider>
+                    </DataContext.Provider>
            </>
     )
 

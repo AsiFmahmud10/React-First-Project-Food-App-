@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {  useState } from "react";
+
 import { useContext } from "react/cjs/react.development";
 
 import Cardc from "./Cardc"
-import { dataContext } from "./dataContext/DataContext";
+import { DataContext } from "./dataContext/DataContext";
 import {Fetch} from './fetchApi'
 
 
@@ -11,10 +11,10 @@ const  Searchbar = () => {
     
     const [query,setQuery] = useState(' ')
     
-      const {setData,data,setError,error} = useContext(dataContext)  
+      const {setData,data,setError,error} = useContext(DataContext)  
 
         //console.log(useContext(dataContext),"nani")
-        
+
     const search = (food)=>{
       
         console.log(query)

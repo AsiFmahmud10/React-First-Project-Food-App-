@@ -21,12 +21,14 @@ function App() {
                   <DataContextProvider>
                                   <Navbar/>
                                     <Switch>
+                                    <Route exact path="/">
+                                             <Searchbar/>
+                                         </Route> 
+
                                           <Route exact path="/Recipe/:id">  
                                               <Recipe/> 
                                           </Route>
-                                         <Route exact path="/">
-                                             <Searchbar/>
-                                         </Route>  
+                                       
                                     </Switch>   
                           </DataContextProvider>
                </ThemeContextProvider>

@@ -1,6 +1,6 @@
 import {  useState } from "react";
 
-import { useContext } from "react/cjs/react.development";
+import { useContext } from "react";
 
 import Cardc from "./Cardc"
 import { DataContext } from "./dataContext/DataContext";

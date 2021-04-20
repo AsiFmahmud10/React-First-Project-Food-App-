@@ -25,7 +25,7 @@ function App() {
                                              <Searchbar/>
                                          </Route> 
 
-                                          <Route exact path="/Recipe/:id">  
+                                          <Route exact path="/Recipe">  
                                               <Recipe/> 
                                           </Route>
                                        

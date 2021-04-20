@@ -44,7 +44,7 @@ const  Searchbar = () => {
               ) : 
               (<div style={{color:'orangered'}} >
                 {error} 
-            </div> )
+               </div> )
     }
         </div>
      );

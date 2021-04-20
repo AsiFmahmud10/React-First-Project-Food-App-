@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
+import { DataContext } from "./dataContext/DataContext"
 import {ThemeContext} from "./Theme/ThemeContext"
 
 const Cardc = ({data}) => {
@@ -7,6 +8,8 @@ const Cardc = ({data}) => {
          const [tgl,setTgl] = useState(false)
          const history = useHistory()
          const {globalTheme} = useContext(ThemeContext)
+         const {foodId,setFoodId} = useContext(DataContext)
+         
 
      const nutition = ()=>{
             let obj =data.nutrition.nutrients[0]
@@ -41,7 +44,10 @@ const Cardc = ({data}) => {
                 
                { tgl && (<div className = "enddiv">{nutition()}</div>) }
               { /*console.log(data,"____")*/}
-                <button onClick={()=>{history.push(`./Recipe/${data.id}`)}}>Details</button>
+                <button onClick={()=>{
+                    setFoodId(data.id)
+                    history.push(`./Recipe`)
+                    }}>Details</button>
 
         </div>
      );

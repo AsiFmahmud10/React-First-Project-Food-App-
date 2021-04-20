@@ -6,7 +6,6 @@ export const ThemeContext = createContext(theme[0])
 const ThemeContextProvider = (props) => {
      
      const [globalTheme,setGlobalTheme] = useState(theme[0])
-
   
       const changeTheme=()=>{
 

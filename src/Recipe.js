@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useContext, useState } from "react/cjs/react.development";
+import { useContext, useState } from "react";
 import { ThemeContext } from "./Theme/ThemeContext";
 import {Fetch} from './fetchApi'
 import { useParams } from "react-router";

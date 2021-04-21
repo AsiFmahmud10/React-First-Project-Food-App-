@@ -17,7 +17,7 @@ const  Searchbar = () => {
 
     const search = (food)=>{
       
-        console.log(query)
+      //  console.log(query)
         let url =`https://api.spoonacular.com/recipes/complexSearch?apiKey=9d1d7e5acfb344e7b0028ac0144e5c87&query=${food}&maxFat=25&number=3
         `
         Fetch(setData,url,setError)

@@ -7,7 +7,7 @@ const Fetch = async (setData,url,setError)=>{
             let local = await fetch(url)
 
             if(!local.ok){
-                  throw new Error('Sorry the api call is limited')
+                  throw new Error('Sorry api call limit exceeded')
             }
             local = await local.json()
 

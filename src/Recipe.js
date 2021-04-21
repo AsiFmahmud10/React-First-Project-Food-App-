@@ -2,16 +2,18 @@ import { useEffect } from "react";
 import { useContext, useState } from "react";
 import { ThemeContext } from "./Theme/ThemeContext";
 import {Fetch} from './fetchApi'
-import { useParams } from "react-router";
 import { DataContext } from "./dataContext/DataContext";
-
+import React from 'react'
+import './recipe.css'
 const Recipe = () => {
+
+
      const {foodId,setFoodId} = useContext(DataContext)
     const {color,background}=useContext(ThemeContext)
       
     let url = `https://api.spoonacular.com/recipes/${foodId}/information?apiKey=9d1d7e5acfb344e7b0028ac0144e5c87&includeNutrition=false`
     
-     console.log(foodId,"iddd")
+   
     const [recipe,setRecipe] = useState(null)
     const [error,setError] = useState(null)
     
@@ -21,7 +23,7 @@ const Recipe = () => {
         Fetch(setRecipe,url,setError)
     },[url])
     
-    let img ,summary,sourch,dishTypes,ing,item = [],readyInMinutes
+    let img ,summary,sourch,dishTypes,ing,item = [],readyInMinutes,title
  
     if(recipe != null){
       
@@ -29,7 +31,8 @@ const Recipe = () => {
              readyInMinutes =recipe.readyInMinutes ? recipe.readyInMinutes : " Is not available"
              sourch = recipe.sourceUrl ? recipe.sourceUrl : "sourceUrl is not available"
              dishTypes = recipe.dishTypes ? recipe.dishTypes : "dishTypes is not available"
-             
+             summary = recipe.instructions ? recipe.instructions : "dishTypes is not available"
+             title = recipe.title ? recipe.title : "title is not available"
         }
     
      
@@ -46,11 +49,18 @@ const Recipe = () => {
 
         <div style={{background:background,color:color}}>
                
-             { recipe && ( <div className="recipe">
-                        <img src={img} alt=""/>
-                        <div className="recipe_item">
+             { recipe &&
+              ( <div className="recipe">
+                            <div className="recipe_image">
+                                    <h1 className="recipe_title">
+                                                {title}
+                                    </h1>
+                                    <img src={img} alt=""/>
+                            </div>
+                        
+                        <div className="recipe_ingredients">
                                
-                                <div>
+                                <div style={{margin: '55px 0px'}}>
                                      <h2>
                                             {"ingredients".toUpperCase()} : </h2> <br/>
                                         {item.map((item)=>(
@@ -61,21 +71,25 @@ const Recipe = () => {
                                               )
 
                                         )}
-                                    <div className="recipe_title">
+                                    <div className="recipe_time" style={{marginTop: '17px'}}>
                                         <h3>Time Taking :{readyInMinutes} min</h3>
                                       
-                                         <button style={{padding:'10px',color:"#dddd",background:background}}>
-                                            <a style={{textDecoration:'none',color:color}} href={sourch}>Full recipe</a>
-                                            
-                                    </button>
                                     
                                     </div>
 
                             </div>
                         </div>
+                                                   {/* summary */}
+                 
+                 <div className="summary" dangerouslySetInnerHTML ={{ __html: summary }}/>
 
                 </div>)}
-               
+              
+
+
+
+
+
                 {
                     error && (
                         <div>

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { DataContext } from "./dataContext/DataContext"
-import {ThemeContext} from "./Theme/ThemeContext"
+import { ThemeContext } from "./Theme/ThemeContext"
 
 const Cardc = ({data}) => {
      

@@ -9,31 +9,7 @@
 html{
   height:100%
 }
-.recipe{
-  margin-top: 100px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.recipe img{
-  object-fit: contain;
-  border: 5px solid rgb(82, 77, 77);
-  box-shadow: 2px 3px 5px -2px black;
-  border-radius: 10px;
-  
-  
-}
-.recipe_title{
-  margin-top: 20px;
-  width: 400px;
- 
-}
-.recipe_title button{
-  display: block;
-  width: 100%;
-  margin:0px;
-  margin-top: 10px;
-}
+
 .contain{
   width: 100%;
   min-height: 100vh;

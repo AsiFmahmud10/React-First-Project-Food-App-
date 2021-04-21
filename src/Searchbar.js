@@ -37,7 +37,7 @@ const  Searchbar = () => {
          
             {
                 data ?  data.results.map((data)=>(
-                        <div className="container" key={data.id}> 
+                        <div className="_container" key={data.id}> 
                             <Cardc data = {data}/>
                         </div>) 
 

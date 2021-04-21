@@ -70,11 +70,13 @@ button{
   background: white;
   font-weight: bold;
   color:rgba(42, 64, 82, 0.6) ;
+  cursor: pointer;
 }
-.container{
+._container{
   max-width: 60%;
-  min-width: 404px;
+  min-width: 360px;
   margin: 50px auto;
+ 
 }
 @media only screen and (max-width: 500px){
    .container{
@@ -90,6 +92,7 @@ button{
   height: 190px;
   border-radius:8px ;
   margin: auto;
+  cursor: pointer;
 }
 .strip:hover{
   box-shadow: 1px 3px 5px 3px #dddd;

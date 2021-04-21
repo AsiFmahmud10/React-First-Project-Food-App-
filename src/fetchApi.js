@@ -11,7 +11,7 @@ const Fetch = async (setData,url,setError)=>{
             }
             local = await local.json()
 
-            console.log(local,"local")
+            //console.log(local,"local")
            
             setData(local)
             setError(null)

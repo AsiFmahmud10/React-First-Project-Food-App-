@@ -42,9 +42,13 @@ const  Searchbar = () => {
                         </div>) 
 
               ) : 
-              (<div style={{color:'orangered'}} >
+              (<div className='error' >
                 {error} 
                </div> )
+    }{
+        (data && data.results.length == 0 ) && (<h2 className="error">
+            Sorry Item not found
+        </h2>)
     }
         </div>
      );

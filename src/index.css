@@ -123,3 +123,10 @@ button{
    width: 80%;
    margin: auto;
 }
+.error{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  color: orangered;
+  font-family:monospace;
+}

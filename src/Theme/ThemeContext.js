@@ -18,12 +18,12 @@ const ThemeContextProvider = (props) => {
     return ( 
         
             <ThemeContext.Provider value = {{globalTheme,changeTheme}}>
-               <div className="contain" style={{ 
-                 background:globalTheme.background,
-                 color:globalTheme.color,}
-                 }>
-                    {props.children}
-               </div>
+                  <div className="contain" style={{ 
+                  background:globalTheme.background,
+                  color:globalTheme.color,}
+                  }>
+                     {props.children}
+                  </div>
             </ThemeContext.Provider>
 
        
